@@ -1,3 +1,3 @@
 FROM centos
-RUN yum update
-RUN yum install java
+RUN yum update -y
+RUN yum install java -y
