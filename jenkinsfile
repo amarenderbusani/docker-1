@@ -9,11 +9,3 @@ dockerfile {
         args '-v /tmp:/tmp'
     }
 }
-stages {
-        stage('Example Build') {
-            steps {
-                sh 'hostname'
-            }
-        }
-    }
-}
