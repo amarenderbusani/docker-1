@@ -9,7 +9,7 @@ sh 'hostname'
 stage('building an image') {
 steps {
 script {
-sh 'echo "RUN hostname">> dockerfile'
+sh 'echo "RUN hostname">> Dockerfile'
 def testimage = docker.build("my-image:${env.BUILD_ID}")
 }
 }
