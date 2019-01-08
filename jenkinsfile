@@ -6,24 +6,8 @@ stages {
                 sh 'hostname'
             }
         }
-stage('building an image') {
-steps {
-script {
-    sh 'echo "RUN hostname">> dockerfile'
-    def testimage =docker.build("my-image:${env.BUILD_ID}")
-    }
-}
-}
-stage('start Dockerimage and Tests') {
-  steps{
-    script {
-      testimage.inside {
-        sh 'hostname'
-      }           
-    }
+
   }
 }
 
-}
-}
 
