@@ -8,11 +8,7 @@ stages {
         }
     }
 node {
-
-    docker.build("test1:${env.BUILD_ID}")
-
-    customImage.inside {
-        sh 'make test'
-    }
+checkout scm
+docker.build("test1:${env.BUILD_ID}")
 }
 }
