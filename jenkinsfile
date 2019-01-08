@@ -9,6 +9,7 @@ stages {
 stage('building an image') {
 steps {
 script {
+    sh 'echo "RUN hostname">> dockerfile'
     docker.build("my-image:${env.BUILD_ID}")
     }
 }
