@@ -2,8 +2,11 @@ pipeline {
   agent {
         label 'slave'
 }
-dockerfile {
-        additionalBuildArgs  '--build-arg version=1.0.2'
-        args '-v /tmp:/tmp'
+stages {
+        stage('Example Build') {
+            steps {
+                sh 'hostname'
+            }
+        }
     }
 }
