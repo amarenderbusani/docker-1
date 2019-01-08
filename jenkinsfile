@@ -18,7 +18,7 @@ stage('start Dockerimage and Tests') {
 steps{
 script {
 testimage.inside {
-sh 'hostname'
+sh 'hostname;ls'
 } 
 }
 }
