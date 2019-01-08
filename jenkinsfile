@@ -10,10 +10,18 @@ stage('building an image') {
 steps {
 script {
     sh 'echo "RUN hostname">> dockerfile'
-    docker.build("my-image:${env.BUILD_ID}")
-    sh 'hostname'
+    def testimage =docker.build("my-image:${env.BUILD_ID}")
     }
 }
+}
+stage('start Dockerimage and Tests') {
+  steps{
+    script {
+      testimage.inside {
+        sh 'hostname'
+      }           
+    }
+  }
 }
 
 }
