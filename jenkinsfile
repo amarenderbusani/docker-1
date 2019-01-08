@@ -8,7 +8,12 @@ stages {
         }
     }
 node {
-checkout scm
-docker.build("test1:${env.BUILD_ID}")
+    checkout scm
+
+    def customImage = docker.build("my-image:${env.BUILD_ID}")
+
+    customImage.inside {
+        sh 'hostname'
+}
 }
 }
