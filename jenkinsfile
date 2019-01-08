@@ -1,8 +1,6 @@
 pipeline {
   agent {
-    node {
         label 'slave'
-    }
 }
 dockerfile {
         additionalBuildArgs  '--build-arg version=1.0.2'
