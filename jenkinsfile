@@ -1,17 +1,7 @@
 pipeline {
   agent {
-    dockerfile {
+    node {
         label 'slave'
-        filename 'dockerfile'
-        args '-v /tmp:/tmp'
+        customWorkspace '/home/jenkins'
     }
-  }
-  stages {
-  stage('Notify') {
-  steps {
- sh "hostname;ls"
- }
-      }
-      
-  }
-    }
+}
