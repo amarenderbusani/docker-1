@@ -3,17 +3,16 @@ pipeline {
 stages {
         stage('Example Build') {
             steps {
-                sh 'mvn clean'
+                sh 'hostname'
             }
         }
-    }
-node {
-    checkout scm
+stage('building an image') {
 
     def customImage = docker.build("my-image:${env.BUILD_ID}")
 
     customImage.inside {
         sh 'hostname'
+}
 }
 }
 }
