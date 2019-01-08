@@ -8,7 +8,9 @@ stages {
         }
 stage('building an image') {
 steps {
+script {
     docker.build("my-image:${env.BUILD_ID}")
+    }
 }
 }
 }
